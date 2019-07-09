@@ -1,0 +1,47 @@
+import {
+  ChangeDetectionStrategy,
+  Component,
+  Input,
+  OnInit
+} from '@angular/core';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+
+@Component({
+  selector: 'one-child',
+  template: `
+    <div>
+      <form [formGroup]="formGroup">
+        <input type="text" [formControl]="getInputControl()" />
+      </form>
+    </div>
+  `,
+  changeDetection: ChangeDetectionStrategy.OnPush
+})
+export class OneChildComponent implements OnInit {
+  @Input() set resetForm(reset: boolean) {
+    console.log('value of reset in the @Input setter on child comp', reset);
+    if (this.formGroup && reset) {
+      this.formGroup.reset();
+    }
+  }
+
+  formGroup: FormGroup;
+
+  constructor(private formBuilder: FormBuilder) {}
+
+  ngOnInit(): void {
+    this._initForm();
+  }
+
+  private _initForm(): void {
+    this.formGroup = this.formBuilder.group({
+      input: ['Already filled in input field']
+    });
+  }
+
+  getInputControl(): FormControl {
+    if (this.formGroup) {
+      return this.formGroup.get('input') as FormControl;
+    }
+  }
+}

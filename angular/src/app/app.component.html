@@ -1,0 +1,33 @@
+<h1>
+  Testing different scenarios on how to tell a child component to do something.
+  E.g. resetting a form.
+</h1>
+
+<ol>
+  <li>
+    <h2 style="color: red;">
+      Primitive boolean value, with observable and async pipe
+    </h2>
+    <one-parent></one-parent>
+  </li>
+  <li>
+    <h2 style="color: red;">Primitive boolean value, no observables</h2>
+    <two-parent></two-parent>
+  </li>
+  <li>
+    <h2>Primitive boolean, with a setTimeout(() => &#123;&#125;}, 0)</h2>
+    <three-parent></three-parent>
+  </li>
+  <li>
+    <h2>Passing obseravble to the child component</h2>
+    <four-parent></four-parent>
+  </li>
+  <li>
+    <h2>Passsing a complex object to the child component</h2>
+    <five-parent></five-parent>
+  </li>
+  <li>
+    <h2>ViewChild</h2>
+    <six-parent></six-parent>
+  </li>
+</ol>
