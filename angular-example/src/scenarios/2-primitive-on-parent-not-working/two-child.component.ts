@@ -1,9 +1,7 @@
 import {
   Component,
   Input,
-  OnChanges,
   OnInit,
-  SimpleChanges
 } from "@angular/core";
 import { FormBuilder, FormControl, FormGroup } from "@angular/forms";
 
@@ -17,9 +15,8 @@ import { FormBuilder, FormControl, FormGroup } from "@angular/forms";
     </div>
   `
 })
-export class TwoChildComponent implements OnInit, OnChanges {
+export class TwoChildComponent implements OnInit {
   @Input() set resetForm(reset: number) {
-    console.log("value of reset in the @Input setter on child comp", reset);
     if (this.formGroup && reset === 1) {
       this.formGroup.reset();
     }
@@ -31,10 +28,6 @@ export class TwoChildComponent implements OnInit, OnChanges {
 
   ngOnInit(): void {
     this.initForm();
-  }
-
-  ngOnChanges(changes: SimpleChanges): void {
-    console.log("changes", changes);
   }
 
   private initForm(): void {

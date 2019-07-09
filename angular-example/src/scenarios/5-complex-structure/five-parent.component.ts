@@ -15,10 +15,6 @@ export class FiveParentComponent {
   resetForm: ResetForm = { reset: false };
 
   onResetForm() {
-    // Does not get triggered when mutating value
-    // this.resetForm.reset = true;
-    // console.log(this.resetForm);
-
     const newResetFormObject: ResetForm = { reset: true };
     this.resetForm = newResetFormObject;
   }

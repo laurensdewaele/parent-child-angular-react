@@ -19,7 +19,6 @@ import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 })
 export class ThreeChildComponent implements OnInit {
   @Input() set resetForm(reset: boolean) {
-    console.log('value of reset in the @Input setter on child comp', reset);
     if (this.formGroup && reset) {
       this.formGroup.reset();
     }
